@@ -8,7 +8,7 @@
   <mva:VisualBasic.Settings>
     <x:Null />
   </mva:VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>654,1467</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>629,1243</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>CreateContext_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="29">
@@ -80,7 +80,7 @@
       <AssemblyReference>System.Runtime.WindowsRuntime</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
-  <Sequence sap2010:Annotation.AnnotationText="Context: Returned Context JObject containing current context information&#xA;ConfigPath: Path to config file. Default &quot;_configs\config.json&quot;.&#xA;MakeLogMark: Create log entry on Context creation. Default True.&#xA;NoConfigFile: Does not attempt to load config from file. Default False." DisplayName="CreateContext" sap:VirtualizedContainerService.HintSize="508,1402" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence sap2010:Annotation.AnnotationText="Context: Returned Context JObject containing current context information&#xA;ConfigPath: Path to config file. Default &quot;_configs\config.json&quot;.&#xA;MakeLogMark: Create log entry on Context creation. Default True.&#xA;NoConfigFile: Does not attempt to load config from file. Default False." DisplayName="CreateContext" sap:VirtualizedContainerService.HintSize="480,1178" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="sd:DataTable" Name="ContextTable" />
       <Variable x:TypeArguments="x:String" Name="contextStructure" />
@@ -94,7 +94,7 @@
         <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <TryCatch DisplayName="Try catch" sap:VirtualizedContainerService.HintSize="466,343" sap2010:WorkflowViewState.IdRef="TryCatch_1">
+    <TryCatch DisplayName="Try catch" sap:VirtualizedContainerService.HintSize="438,470" sap2010:WorkflowViewState.IdRef="TryCatch_1">
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
           <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -131,10 +131,10 @@
         </Sequence>
       </TryCatch.Try>
       <TryCatch.Catches>
-        <Catch x:TypeArguments="ui:OrchestratorHttpException" sap:VirtualizedContainerService.HintSize="400,181" sap2010:WorkflowViewState.IdRef="Catch`1_1">
+        <Catch x:TypeArguments="ui:OrchestratorHttpException" sap:VirtualizedContainerService.HintSize="404,21" sap2010:WorkflowViewState.IdRef="Catch`1_1">
           <sap:WorkflowViewStateService.ViewState>
             <scg:Dictionary x:TypeArguments="x:String, x:Object">
-              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+              <x:Boolean x:Key="IsExpanded">False</x:Boolean>
               <x:Boolean x:Key="IsPinned">False</x:Boolean>
             </scg:Dictionary>
           </sap:WorkflowViewStateService.ViewState>
@@ -144,42 +144,36 @@
             </ActivityAction.Argument>
             <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Invoke CreateOrchestratorAsset workflow" sap:VirtualizedContainerService.HintSize="334,112" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_3" UnSafe="False" WorkflowFileName="Helper\CreateOrchestratorAsset.xaml">
               <ui:InvokeWorkflowFile.Arguments>
-                <InArgument x:TypeArguments="x:String" x:Key="orcURL">
-                  <Literal x:TypeArguments="x:String">https://cloud.uipath.com/Deb_Rob/Deb_Rob/orchestrator_</Literal>
-                </InArgument>
+                <InArgument x:TypeArguments="x:String" x:Key="orcURL">https://cloud.uipath.com/Deb_Rob/Deb_Rob/orchestrator_</InArgument>
                 <InArgument x:TypeArguments="x:String" x:Key="endPoint" />
                 <InArgument x:TypeArguments="x:String" x:Key="parameter" />
-                <InArgument x:TypeArguments="x:String" x:Key="AssetName">
-                  <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="assetName" />
-                </InArgument>
-                <InArgument x:TypeArguments="x:String" x:Key="scopeValue">
-                  <Literal x:TypeArguments="x:String">Global</Literal>
-                </InArgument>
-                <InArgument x:TypeArguments="x:String" x:Key="valueType">
-                  <Literal x:TypeArguments="x:String">Text</Literal>
-                </InArgument>
-                <InArgument x:TypeArguments="x:String" x:Key="assetValue">
-                  <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="ConfigType" />
-                </InArgument>
-                <InArgument x:TypeArguments="x:String" x:Key="orchFolder">
-                  <Literal x:TypeArguments="x:String">Shared</Literal>
-                </InArgument>
+                <InArgument x:TypeArguments="x:String" x:Key="AssetName">[assetName]</InArgument>
+                <InArgument x:TypeArguments="x:String" x:Key="scopeValue">Global</InArgument>
+                <InArgument x:TypeArguments="x:String" x:Key="valueType">Text</InArgument>
+                <InArgument x:TypeArguments="x:String" x:Key="assetValue">[ConfigType]</InArgument>
+                <InArgument x:TypeArguments="x:String" x:Key="orchFolder">Shared</InArgument>
               </ui:InvokeWorkflowFile.Arguments>
             </ui:InvokeWorkflowFile>
           </ActivityAction>
         </Catch>
       </TryCatch.Catches>
     </TryCatch>
-    <WriteLine DisplayName="Write line" sap:VirtualizedContainerService.HintSize="466,61" sap2010:WorkflowViewState.IdRef="WriteLine_4" Text="[configType]" />
-    <TryCatch DisplayName="Try Catch" sap:VirtualizedContainerService.HintSize="466,554" sap2010:WorkflowViewState.IdRef="TryCatch_2">
+    <WriteLine DisplayName="Write line" sap:VirtualizedContainerService.HintSize="438,61" sap2010:WorkflowViewState.IdRef="WriteLine_4" Text="[configType]" />
+    <TryCatch DisplayName="Try Catch" sap:VirtualizedContainerService.HintSize="438,51" sap2010:WorkflowViewState.IdRef="TryCatch_2">
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
       <TryCatch.Try>
-        <Sequence sap:VirtualizedContainerService.HintSize="486,329" sap2010:WorkflowViewState.IdRef="Sequence_15">
+        <Sequence sap:VirtualizedContainerService.HintSize="376,329" sap2010:WorkflowViewState.IdRef="Sequence_15">
           <sap:WorkflowViewStateService.ViewState>
             <scg:Dictionary x:TypeArguments="x:String, x:Object">
               <x:Boolean x:Key="IsExpanded">True</x:Boolean>
             </scg:Dictionary>
           </sap:WorkflowViewStateService.ViewState>
-          <Assign sap:VirtualizedContainerService.HintSize="444,60" sap2010:WorkflowViewState.IdRef="Assign_19">
+          <Assign sap:VirtualizedContainerService.HintSize="334,60" sap2010:WorkflowViewState.IdRef="Assign_19">
             <Assign.To>
               <OutArgument x:TypeArguments="x:String">[assetName]</OutArgument>
             </Assign.To>
@@ -187,7 +181,7 @@
               <InArgument x:TypeArguments="x:String">[ProcessName + "__"+configType+"_Config"]</InArgument>
             </Assign.Value>
           </Assign>
-          <ui:GetRobotAsset TimeoutMS="{x:Null}" AssetName="[assetName]" DisplayName="Get Asset (Dev config)" FolderPath="Shared" sap:VirtualizedContainerService.HintSize="444,137" sap2010:WorkflowViewState.IdRef="GetRobotAsset_2">
+          <ui:GetRobotAsset TimeoutMS="{x:Null}" AssetName="[assetName]" DisplayName="Get Asset (Dev config)" FolderPath="Shared" sap:VirtualizedContainerService.HintSize="334,137" sap2010:WorkflowViewState.IdRef="GetRobotAsset_2">
             <ui:GetRobotAsset.Value>
               <OutArgument x:TypeArguments="x:String">[txtConfig]</OutArgument>
             </ui:GetRobotAsset.Value>
@@ -195,10 +189,10 @@
         </Sequence>
       </TryCatch.Try>
       <TryCatch.Catches>
-        <Catch x:TypeArguments="s:Exception" sap:VirtualizedContainerService.HintSize="432,392" sap2010:WorkflowViewState.IdRef="Catch`1_2">
+        <Catch x:TypeArguments="s:Exception" sap:VirtualizedContainerService.HintSize="404,21" sap2010:WorkflowViewState.IdRef="Catch`1_2">
           <sap:WorkflowViewStateService.ViewState>
             <scg:Dictionary x:TypeArguments="x:String, x:Object">
-              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+              <x:Boolean x:Key="IsExpanded">False</x:Boolean>
               <x:Boolean x:Key="IsPinned">False</x:Boolean>
             </scg:Dictionary>
           </sap:WorkflowViewStateService.ViewState>
@@ -212,29 +206,17 @@
                   <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                 </scg:Dictionary>
               </sap:WorkflowViewStateService.ViewState>
-              <ui:ReadTextFile Content="[txtConfig]" DisplayName="Read Text File" FileName="[ConfigPath]" sap:VirtualizedContainerService.HintSize="384,79" sap2010:WorkflowViewState.IdRef="ReadTextFile_1" />
+              <ui:ReadTextFile File="{x:Null}" Content="[txtConfig]" DisplayName="Read Text File" FileName="[ConfigPath]" sap:VirtualizedContainerService.HintSize="384,79" sap2010:WorkflowViewState.IdRef="ReadTextFile_1" />
               <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Invoke CreateOrchestratorAsset workflow" sap:VirtualizedContainerService.HintSize="384,112" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_4" UnSafe="False" WorkflowFileName="Helper\CreateOrchestratorAsset.xaml">
                 <ui:InvokeWorkflowFile.Arguments>
-                  <InArgument x:TypeArguments="x:String" x:Key="orcURL">
-                    <Literal x:TypeArguments="x:String">https://cloud.uipath.com/Deb_Rob/Deb_Rob/orchestrator_</Literal>
-                  </InArgument>
+                  <InArgument x:TypeArguments="x:String" x:Key="orcURL">https://cloud.uipath.com/Deb_Rob/Deb_Rob/orchestrator_</InArgument>
                   <InArgument x:TypeArguments="x:String" x:Key="endPoint" />
                   <InArgument x:TypeArguments="x:String" x:Key="parameter" />
-                  <InArgument x:TypeArguments="x:String" x:Key="AssetName">
-                    <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="assetName" />
-                  </InArgument>
-                  <InArgument x:TypeArguments="x:String" x:Key="scopeValue">
-                    <Literal x:TypeArguments="x:String">Global</Literal>
-                  </InArgument>
-                  <InArgument x:TypeArguments="x:String" x:Key="valueType">
-                    <Literal x:TypeArguments="x:String">Text</Literal>
-                  </InArgument>
-                  <InArgument x:TypeArguments="x:String" x:Key="assetValue">
-                    <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="txtConfig" />
-                  </InArgument>
-                  <InArgument x:TypeArguments="x:String" x:Key="orchFolder">
-                    <Literal x:TypeArguments="x:String">Shared</Literal>
-                  </InArgument>
+                  <InArgument x:TypeArguments="x:String" x:Key="AssetName">[assetName]</InArgument>
+                  <InArgument x:TypeArguments="x:String" x:Key="scopeValue">Global</InArgument>
+                  <InArgument x:TypeArguments="x:String" x:Key="valueType">Text</InArgument>
+                  <InArgument x:TypeArguments="x:String" x:Key="assetValue">[txtConfig]</InArgument>
+                  <InArgument x:TypeArguments="x:String" x:Key="orchFolder">Shared</InArgument>
                 </ui:InvokeWorkflowFile.Arguments>
               </ui:InvokeWorkflowFile>
             </Sequence>
@@ -242,7 +224,7 @@
         </Catch>
       </TryCatch.Catches>
     </TryCatch>
-    <ui:DeserializeJson x:TypeArguments="njl:JObject" DisplayName="Deserialize json" sap:VirtualizedContainerService.HintSize="466,60" sap2010:WorkflowViewState.IdRef="DeserializeJson`1_3" JsonObject="[jsConfig]" JsonString="[txtConfig]">
+    <ui:DeserializeJson x:TypeArguments="njl:JObject" DisplayName="Deserialize json" sap:VirtualizedContainerService.HintSize="438,60" sap2010:WorkflowViewState.IdRef="DeserializeJson`1_3" JsonObject="[jsConfig]" JsonString="[txtConfig]">
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
           <x:Boolean x:Key="IsExpanded">False</x:Boolean>
@@ -250,7 +232,7 @@
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
     </ui:DeserializeJson>
-    <Assign sap:VirtualizedContainerService.HintSize="466,60" sap2010:WorkflowViewState.IdRef="Assign_6">
+    <Assign sap:VirtualizedContainerService.HintSize="438,60" sap2010:WorkflowViewState.IdRef="Assign_6">
       <Assign.To>
         <OutArgument x:TypeArguments="njl:JObject">[Config]</OutArgument>
       </Assign.To>
@@ -258,5 +240,13 @@
         <InArgument x:TypeArguments="njl:JObject">[jsConfig]</InArgument>
       </Assign.Value>
     </Assign>
+    <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Invoke GetQueueInformation workflow" sap:VirtualizedContainerService.HintSize="438,112" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_6" UnSafe="False" WorkflowFileName="Framework\GetQueueInformation.xaml">
+      <ui:InvokeWorkflowFile.Arguments>
+        <InArgument x:TypeArguments="njl:JObject" x:Key="in_Config">
+          <mva:VisualBasicValue x:TypeArguments="njl:JObject" ExpressionText="Config" />
+        </InArgument>
+        <OutArgument x:TypeArguments="x:String" x:Key="out_QueueInformation" />
+      </ui:InvokeWorkflowFile.Arguments>
+    </ui:InvokeWorkflowFile>
   </Sequence>
 </Activity>

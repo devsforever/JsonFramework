@@ -26,8 +26,8 @@
 		"OrchestratorURL":"https://cloud.uipath.com/Deb_Rob/Deb_Rob/orchestrator_",
 		"OrchestratorCredentialName":"",
 		"OrchestratorTenancyName":"",
-		"QueueName":"Queue",
+		"OrchestratorQueueName":"_Queue",
 		"CredentialAsset":"",
-		"Folder":"Shared"
+		"OrchestratorFolder":"Shared"
 	}
 }
