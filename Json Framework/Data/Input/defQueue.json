@@ -1,0 +1,7 @@
+{
+    "Name": "newQueue",
+    "Description": "Queue created with api call",
+    "MaxNumberOfRetries": 1,
+    "AcceptAutomaticallyRetry": true,
+    "EnforceUniqueReference": false
+}

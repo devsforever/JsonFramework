@@ -1,0 +1,180 @@
+﻿<Activity mc:Ignorable="sap sap2010 sads" x:Class="ModifyContext" this:ModifyContext.MakeLogMark="False" this:ModifyContext.LogLevel="[System.Diagnostics.TraceLevel.Info]"
+ xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities"
+ xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+ xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities"
+ xmlns:njl="clr-namespace:Newtonsoft.Json.Linq;assembly=Newtonsoft.Json"
+ xmlns:sads="http://schemas.microsoft.com/netfx/2010/xaml/activities/debugger"
+ xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation"
+ xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation"
+ xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib"
+ xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=mscorlib"
+ xmlns:sd="clr-namespace:System.Diagnostics;assembly=System"
+ xmlns:this="clr-namespace:"
+ xmlns:ui="http://schemas.uipath.com/workflow/activities"
+ xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <x:Members>
+    <x:Property Name="Context" Type="InOutArgument(njl:JObject)" />
+    <x:Property Name="WorkID" Type="InArgument(x:String)" />
+    <x:Property Name="MakeLogMark" Type="InArgument(x:Boolean)" />
+    <x:Property Name="Message" Type="InArgument(x:String)" />
+    <x:Property Name="LogLevel" Type="InArgument(sd:TraceLevel)" />
+    <x:Property Name="TransactionName" Type="InArgument(x:String)" />
+    <x:Property Name="ProcessType" Type="InArgument(x:String)" />
+  </x:Members>
+  <mva:VisualBasic.Settings>
+    <x:Null />
+  </mva:VisualBasic.Settings>
+  <sap2010:WorkflowViewState.IdRef>ModifyContext_1</sap2010:WorkflowViewState.IdRef>
+  <TextExpression.NamespacesForImplementation>
+    <sco:Collection x:TypeArguments="x:String">
+      <x:String>System.Activities</x:String>
+      <x:String>System.Activities.Statements</x:String>
+      <x:String>System.Activities.Expressions</x:String>
+      <x:String>System.Activities.Validation</x:String>
+      <x:String>System.Activities.XamlIntegration</x:String>
+      <x:String>Microsoft.VisualBasic</x:String>
+      <x:String>Microsoft.VisualBasic.Activities</x:String>
+      <x:String>System</x:String>
+      <x:String>System.Collections</x:String>
+      <x:String>System.Collections.Generic</x:String>
+      <x:String>System.Data</x:String>
+      <x:String>System.Diagnostics</x:String>
+      <x:String>System.Drawing</x:String>
+      <x:String>System.IO</x:String>
+      <x:String>System.Linq</x:String>
+      <x:String>System.Net.Mail</x:String>
+      <x:String>System.Xml</x:String>
+      <x:String>System.Xml.Linq</x:String>
+      <x:String>UiPath.Core</x:String>
+      <x:String>UiPath.Core.Activities</x:String>
+      <x:String>System.Windows.Markup</x:String>
+      <x:String>Newtonsoft.Json.Linq</x:String>
+      <x:String>Newtonsoft.Json</x:String>
+      <x:String>UiPath.Models</x:String>
+    </sco:Collection>
+  </TextExpression.NamespacesForImplementation>
+  <TextExpression.ReferencesForImplementation>
+    <sco:Collection x:TypeArguments="AssemblyReference">
+      <AssemblyReference>System.Activities</AssemblyReference>
+      <AssemblyReference>Microsoft.VisualBasic</AssemblyReference>
+      <AssemblyReference>mscorlib</AssemblyReference>
+      <AssemblyReference>System.Data</AssemblyReference>
+      <AssemblyReference>System</AssemblyReference>
+      <AssemblyReference>System.Drawing</AssemblyReference>
+      <AssemblyReference>System.Core</AssemblyReference>
+      <AssemblyReference>System.Xml</AssemblyReference>
+      <AssemblyReference>System.Xml.Linq</AssemblyReference>
+      <AssemblyReference>UiPath.Core</AssemblyReference>
+      <AssemblyReference>UiPath.Core.Activities</AssemblyReference>
+      <AssemblyReference>PresentationFramework</AssemblyReference>
+      <AssemblyReference>WindowsBase</AssemblyReference>
+      <AssemblyReference>PresentationCore</AssemblyReference>
+      <AssemblyReference>System.Xaml</AssemblyReference>
+      <AssemblyReference>Newtonsoft.Json</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.Composition</AssemblyReference>
+      <AssemblyReference>System.ServiceModel</AssemblyReference>
+      <AssemblyReference>UiPath.Models</AssemblyReference>
+      <AssemblyReference>System.Configuration.Install</AssemblyReference>
+    </sco:Collection>
+  </TextExpression.ReferencesForImplementation>
+  <Sequence DisplayName="ModifyContext" sap2010:WorkflowViewState.IdRef="Sequence_1">
+    <Sequence DisplayName="Set wanted values to context" sap2010:WorkflowViewState.IdRef="Sequence_2">
+      <If Condition="[Not WorkID is Nothing]" DisplayName="If WorkID is defined" sap2010:WorkflowViewState.IdRef="If_1">
+        <If.Then>
+          <Assign sap2010:WorkflowViewState.IdRef="Assign_1">
+            <Assign.To>
+              <OutArgument x:TypeArguments="njl:JToken">[Context("WorkID")]</OutArgument>
+            </Assign.To>
+            <Assign.Value>
+              <InArgument x:TypeArguments="njl:JToken">[WorkID]</InArgument>
+            </Assign.Value>
+          </Assign>
+        </If.Then>
+        <If.Else>
+          <ui:Comment sap2010:WorkflowViewState.IdRef="Comment_1" Text="// If not defined -&gt; Keep the original value&#xA;" />
+        </If.Else>
+      </If>
+      <If Condition="[Not TransactionName is Nothing]" DisplayName="If WorkPhase is defined" sap2010:WorkflowViewState.IdRef="If_2">
+        <If.Then>
+          <Assign sap2010:WorkflowViewState.IdRef="Assign_2">
+            <Assign.To>
+              <OutArgument x:TypeArguments="njl:JToken">[Context("TransactionName")]</OutArgument>
+            </Assign.To>
+            <Assign.Value>
+              <InArgument x:TypeArguments="njl:JToken">[TransactionName]</InArgument>
+            </Assign.Value>
+          </Assign>
+        </If.Then>
+        <If.Else>
+          <ui:Comment sap2010:WorkflowViewState.IdRef="Comment_2" Text="// If not defined -&gt; Keep the original value&#xA;" />
+        </If.Else>
+      </If>
+      <If Condition="[Not ProcessType is Nothing]" DisplayName="If ApplicationName is defined" sap2010:WorkflowViewState.IdRef="If_4">
+        <If.Then>
+          <Assign sap2010:WorkflowViewState.IdRef="Assign_3">
+            <Assign.To>
+              <OutArgument x:TypeArguments="njl:JToken">[Context("ProcessType")]</OutArgument>
+            </Assign.To>
+            <Assign.Value>
+              <InArgument x:TypeArguments="njl:JToken">[ProcessType]</InArgument>
+            </Assign.Value>
+          </Assign>
+        </If.Then>
+        <If.Else>
+          <ui:Comment sap2010:WorkflowViewState.IdRef="Comment_3" Text="// If not defined -&gt; Keep the original value&#xA;" />
+        </If.Else>
+      </If>
+    </Sequence>
+    <If Condition="[MakeLogMark]" DisplayName="Make a log marker" sap2010:WorkflowViewState.IdRef="If_3">
+      <If.Then>
+        <Sequence sap2010:WorkflowViewState.IdRef="Sequence_3">
+          <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke LogAndNotify workflow" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_2" UnSafe="False" WorkflowFileName="common\LogAndNotify.xaml">
+            <ui:InvokeWorkflowFile.Arguments>
+              <InArgument x:TypeArguments="njl:JObject" x:Key="Context">[Context]</InArgument>
+              <InArgument x:TypeArguments="x:String" x:Key="Message">[If(Message, "Context changed")]</InArgument>
+              <InArgument x:TypeArguments="sd:TraceLevel" x:Key="logLevel">[LogLevel]</InArgument>
+            </ui:InvokeWorkflowFile.Arguments>
+          </ui:InvokeWorkflowFile>
+        </Sequence>
+      </If.Then>
+    </If>
+    <sads:DebugSymbol.Symbol>d4wBRDpcUlBBXEJhbmNrIFN0YXRlbWVudCBBcmNoaXZhbFxHMDA0X0JhbmtTdGF0ZW1lbnRBcmNoaXZhbFxHMDA0X0JhbmtTdGF0ZW1lbnRBcmNoaXZhbFxHMDA0X1JfQmFua1N0YXRlbWVudEFyY2hpdmFsXGNvbW1vblxNb2RpZnlDb250ZXh0LnhhbWweAWIBaAEDAYYBAasBAQJQA44BDgIBAVEFfxACAQ6AAQWMAQoCAQJSB2AMAgEhYQdvDAIBGHAHfgwCAQ+AAROAASICAQOCAQmKARQCAQVSFVIuAgEiVAtbFAIBJV4LXoEBAgEkYRVhNwIBGWMLahQCARxtC22BAQIBG3AVcDMCARByC3kUAgETfAt8gQECARKDAQuJASMCAQZZOFlAAgEoVjlWTAIBJmg4aEkCAR9lOWVVAgEddzh3RQIBFnQ5dFECARSGAUaGAWYCAQyFAUmFAVICAQqHAUyHAVYCAQiDAb8BgwHZAQIBBw==</sads:DebugSymbol.Symbol>
+  </Sequence>
+  <sap2010:WorkflowViewState.ViewStateManager>
+    <sap2010:ViewStateManager>
+      <sap2010:ViewStateData Id="Assign_1" sap:VirtualizedContainerService.HintSize="242,60" />
+      <sap2010:ViewStateData Id="Comment_1" sap:VirtualizedContainerService.HintSize="314,55" />
+      <sap2010:ViewStateData Id="If_1" sap:VirtualizedContainerService.HintSize="581,208" />
+      <sap2010:ViewStateData Id="Assign_2" sap:VirtualizedContainerService.HintSize="242,60" />
+      <sap2010:ViewStateData Id="Comment_2" sap:VirtualizedContainerService.HintSize="314,55" />
+      <sap2010:ViewStateData Id="If_2" sap:VirtualizedContainerService.HintSize="581,208" />
+      <sap2010:ViewStateData Id="Assign_3" sap:VirtualizedContainerService.HintSize="242,60" />
+      <sap2010:ViewStateData Id="Comment_3" sap:VirtualizedContainerService.HintSize="314,55" />
+      <sap2010:ViewStateData Id="If_4" sap:VirtualizedContainerService.HintSize="581,208" />
+      <sap2010:ViewStateData Id="Sequence_2" sap:VirtualizedContainerService.HintSize="603,828">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+      </sap2010:ViewStateData>
+      <sap2010:ViewStateData Id="InvokeWorkflowFile_2" sap:VirtualizedContainerService.HintSize="314,87" />
+      <sap2010:ViewStateData Id="Sequence_3" sap:VirtualizedContainerService.HintSize="336,211">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+      </sap2010:ViewStateData>
+      <sap2010:ViewStateData Id="If_3" sap:VirtualizedContainerService.HintSize="603,359" />
+      <sap2010:ViewStateData Id="Sequence_1" sap:VirtualizedContainerService.HintSize="625,1351">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+      </sap2010:ViewStateData>
+      <sap2010:ViewStateData Id="ModifyContext_1" sap:VirtualizedContainerService.HintSize="665,1471" />
+    </sap2010:ViewStateManager>
+  </sap2010:WorkflowViewState.ViewStateManager>
+</Activity>
