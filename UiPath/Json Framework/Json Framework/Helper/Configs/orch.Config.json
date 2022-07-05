@@ -1,0 +1,17 @@
+{
+	"Asset": {
+		"Name": "DemoAsset",
+		"ValueScope": "Global",
+		"ValueType": "Text",
+		"StringValue":"",
+		"BoolValue": false,
+		"IntValue": 0,
+	}
+	"Queue": {
+		"Name":"newQueue",
+		"Description":"Queue created with api call",
+		"MaxNumberOfRetries":1,
+		"AcceptAutomaticallyRetry":true,
+		"EnforceUniqueReference":false
+	}
+}

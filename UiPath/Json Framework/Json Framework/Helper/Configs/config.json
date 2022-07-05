@@ -1,0 +1,34 @@
+{
+	"processName" : "TestProcess",
+	"debug": true,
+	"createDirectories": false,
+	"AppSetting":{
+		"AppList":"iexplore, msedge,EXCEL"
+	},
+	"directories": {
+		"Drive":"",
+
+	},
+	"programConstants": {
+		"ExScreenshotsFolderPath":"Exceptions_Screenshots",
+		"smallTimeout": 5000,
+		"bigTimeout": 15000,
+		"MaxRetryNumber":0		
+	},
+	"LogConstants":{
+		"LogMessage_LoadQueueData":"Processing Queue Number: ",
+		"LogMessage_LoadQueueError":"Error getting Queue data for Queue Number: ",
+		"LogMessage_Success":"Load Queue Successful.",
+		"LogMessage_BusinessRuleException":"Business rule exception.",
+		"LogMessage_ApplicationException":"System exception.",
+		"LogMessage_InitAllApplication":"Error getting for application: ",
+
+	},
+	"OrchestratorSettings":{
+		"OrchestratorURL":"https://cloud.uipath.com/Deb_Rob/Deb_Rob/orchestrator_",
+		"OrchestratorCredentialName":"",
+		"OrchestratorTenancyName":"",
+		"OrchestratorQueueName":"",
+		"CredentialAsset":"",
+	}
+}
