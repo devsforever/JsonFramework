@@ -1,21 +1,18 @@
 {
-  "name": "FrameWork Dispatcher",
-  "description": "Add items to Queue - BSA",
-  "main": "Main.xaml",
+  "name": "Reusuable_Windows",
+  "projectId": "cd37c6d3-990f-452b-97e1-5adc1a925d97",
+  "description": "Project",
+  "main": "D:\\Reusuable\\GetNembersInWord.xaml",
   "dependencies": {
-    "UiPath.Cognitive.Activities": "[2.2.4]",
-    "UiPath.Credentials.Activities": "[2.0.0]",
-    "UiPath.Database.Activities": "[1.6.1]",
-    "UiPath.Excel.Activities": "[2.11.4]",
-    "UiPath.System.Activities": "[22.4.1]",
-    "UiPath.UIAutomation.Activities": "[22.4.6]",
-    "UiPath.WebAPI.Activities": "[1.9.2]"
+    "UiPath.System.Activities": "21.10.6",
+    "UiPath.UIAutomation.Activities": "21.10.9",
+    "UiPath.WebAPI.Activities": "[1.11.1]"
   },
   "webServices": [],
   "entitiesStores": [],
   "schemaVersion": "4.0",
-  "studioVersion": "20.4.3.0",
-  "projectVersion": "1.0.8263.29232",
+  "studioVersion": "22.4.3.0",
+  "projectVersion": "1.0.6618.28024",
   "runtimeOptions": {
     "autoDispose": false,
     "netFrameworkLazyLoading": false,
@@ -23,6 +20,7 @@
     "isAttended": false,
     "requiresUserInteraction": true,
     "supportsPersistence": false,
+    "workflowSerialization": "DataContract",
     "excludedLoggedData": [
       "Private:*",
       "*password*"
@@ -30,7 +28,8 @@
     "executionType": "Workflow",
     "readyForPiP": false,
     "startsInPiP": false,
-    "mustRestoreAllDependencies": false
+    "mustRestoreAllDependencies": false,
+    "pipType": "ChildSession"
   },
   "designOptions": {
     "projectProfile": "Developement",
@@ -46,16 +45,8 @@
     "modernBehavior": false
   },
   "expressionLanguage": "VisualBasic",
-  "entryPoints": [
-    {
-      "filePath": "Main.xaml",
-      "uniqueId": "653fee98-05c5-4d16-b72a-16ffb4ed1e63",
-      "input": [],
-      "output": []
-    }
-  ],
   "isTemplate": false,
   "templateProjectData": {},
   "publishData": {},
-  "targetFramework": "Legacy"
+  "targetFramework": "Windows"
 }
